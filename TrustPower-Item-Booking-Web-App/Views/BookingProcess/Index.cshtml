@@ -1,0 +1,71 @@
+﻿@model TrustPower_Item_Booking_Web_App.Controllers.BookingProcessController.ViewModel
+<!-- model IEnumerable<TrustPower_Item_Booking_Web_App.Models.Items>-->
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div class="col-md-10">
+
+    @{
+
+
+
+
+        List<SelectListItem> listItems = new List<SelectListItem>();
+
+        List<string> UniqueItems = new List<string>();
+
+        foreach (var item in Model.Items)
+        {
+            if (UniqueItems.Contains(item.ItemName.ToString()))
+            {
+
+            }
+            else
+            {
+                UniqueItems.Add(item.ItemName.ToString());
+            }
+
+
+
+        }
+        foreach (string i in UniqueItems)
+        {
+            listItems.Add(new SelectListItem
+            {
+                Text = i.ToString(),
+                Value = i.ToString(),
+
+            });
+        }
+
+    }
+
+    @{
+        IEnumerable<Bookings> books = Model.Bookings;
+    }
+
+   
+        >
+        <select name="authorId" asp-items="listItems" class="form-control"></select>
+
+
+        @using (Html.BeginForm("Create", "BookingProcess", FormMethod.Post))
+        {
+            <input type="date" name="PickUpDate" id="" />
+            <input type="date" name="ReturnDate" id="" />
+            
+            <input type="submit" value="ChooseDate" />
+        }
+
+
+    
+    
+
+
+
+</div>
+

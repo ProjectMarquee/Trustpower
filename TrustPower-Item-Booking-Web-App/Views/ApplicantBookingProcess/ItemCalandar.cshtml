@@ -1,6 +1,5 @@
-﻿@{
-    ViewData["Title"] = "Item Selection";
-}
+﻿@model TrustPower_Item_Booking_Web_App.Models.Items
+@{ ViewData["Title"] = "Item Selection"; }
 <body>
     <div class="container text-center">
         <div class="row">
@@ -16,34 +15,64 @@
                 <br><br>
 
 
-                <!-- Marquee selection menu -->
-                <select class="custom-select custom-select-lg">
-                    <option selected>Select a Marquee</option>
-                    <option value="1">5m x 10m Marquee</option>
-                    <option value="2">6m x 8m Marquee</option>
-                </select>
+                <div class="col-md-10">
+
+                    @{ List<SelectListItem> listItems = new List<SelectListItem>();
+                                    listItems.Add(new SelectListItem
+                                    {
+                                        Text = "AtlantaPort",
+                                        Value = "AtlantaPort"
+                                    });
+                                    listItems.Add(new SelectListItem
+                                    {
+                                        Text = "NewJersyTerminal",
+                                        Value = "NewJersyTerminal",
+                                        Selected = true
+                                    });
+                                    listItems.Add(new SelectListItem
+                                    {
+                                        Text = "AWS",
+                                        Value = "AWS"
+                                    }); }
+
+                    @{ 
+                        
+                    }
+
+                    @Html.DropDownList("ItemListDropDown", listItems, new { @class = "form-control" })
+
+                </div>
+            </div>
+
+            <!-- Marquee selection menu -->
+            <select class="custom-select custom-select-lg">
+                <option selected>Select a Marquee</option>
+                <option value="1">5m x 10m Marquee</option>
+                <option value="2">6m x 8m Marquee</option>
+
+            </select>
 
 
-                <br><br><br><br>
+            <br><br><br><br>
 
 
-                <!-- Calendar -->
-                <h5>[Calendar will go here]</h5>
+            <!-- Calendar -->
+            <h5>[Calendar will go here]</h5>
 
 
-                <br><br><br><br>
+            <br><br><br><br>
 
 
-                <!-- Button to the next page -->
-                <a class="nav-link text-dark" asp-area="" asp-controller="ApplicantBookingProcess" asp-action="Form">
+            <!-- Button to the next page -->
+            <a class="nav-link text-dark" asp-area="" asp-controller="ApplicantBookingProcess" asp-action="Form">
                 <button class="button">
                     <h5>NEXT</h5>
                 </button>
-                </a>
+            </a>
 
 
-            </div>
-            <div class="col-lg-1 col-md-1"></div>
         </div>
+        <div class="col-lg-1 col-md-1"></div>
     </div>
+    
 </body>

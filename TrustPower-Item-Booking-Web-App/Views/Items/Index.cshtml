@@ -1,0 +1,102 @@
+﻿@model IEnumerable<TrustPower_Item_Booking_Web_App.Models.Items>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div class="col-md-10">
+
+    @{
+
+
+
+
+        List<SelectListItem> listItems = new List<SelectListItem>();
+
+        List<string> UniqueItems = new List<string>();
+
+        foreach (var item in Model)
+        {
+            if (UniqueItems.Contains(item.ItemName.ToString()))
+            {
+
+            }
+            else
+            {
+                UniqueItems.Add(item.ItemName.ToString());
+            }
+
+
+
+        }
+        foreach (string i in UniqueItems)
+        {
+            listItems.Add(new SelectListItem
+            {
+                Text = i.ToString(),
+                Value = i.ToString(),
+
+            });
+        }
+
+    }
+
+    <form>
+        <select name="authorId" asp-items="listItems" class="form-control"></select>
+
+
+
+    </form>
+
+    @{
+   
+    
+
+    }
+
+
+
+</div>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depot)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Depot.City)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ItemId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ItemId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ItemId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

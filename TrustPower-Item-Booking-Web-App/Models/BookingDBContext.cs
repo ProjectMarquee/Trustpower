@@ -185,8 +185,7 @@ namespace TrustPower_Item_Booking_Web_App.Models
                     .IsRequired()
                     .HasMaxLength(128)
                     .IsUnicode(false);
-
-                entity.Property(e => e.Column6).HasColumnName("column_6");
+                               
 
                 entity.Property(e => e.DepotName)
                     .IsRequired()
