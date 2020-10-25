@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileSystemGlobbing.Internal;
 using TrustPower_Item_Booking_Web_App.Models;
+using Microsoft.AspNetCore.Session;
 
 namespace TrustPower_Item_Booking_Web_App.Controllers
 {
     public class ApplicantsController : Controller
     {
+        
+
         private readonly BookingDBContext _context;
 
         public ApplicantsController(BookingDBContext context)
@@ -47,7 +52,8 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
         // GET: Applicants/Create
         public IActionResult Create()
         {
-            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode");
+
+            //ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode");
             return View();
         }
 
@@ -58,13 +64,17 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ApplicantId,FirstName,Surname,Password,Email,MobileNumber,PhoneNumber,OrganisationName,AddressId")] Applicants applicants)
         {
+            
             if (ModelState.IsValid)
             {
                 _context.Add(applicants);
+                
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                Response.Cookies.Append("ApplicantId", applicants.ApplicantId.ToString());
+                return View("../BookingProcess/InputBooking");
             }
-            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode", applicants.AddressId);
+          
             return View(applicants);
         }
 
@@ -81,7 +91,7 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
             {
                 return NotFound();
             }
-            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode", applicants.AddressId);
+         //   ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode", applicants.AddressId);
             return View(applicants);
         }
 
@@ -117,7 +127,7 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode", applicants.AddressId);
+         //   ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode", applicants.AddressId);
             return View(applicants);
         }
 

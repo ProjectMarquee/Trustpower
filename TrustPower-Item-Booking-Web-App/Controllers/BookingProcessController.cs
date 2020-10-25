@@ -2,14 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileSystemGlobbing.Internal;
 using TrustPower_Item_Booking_Web_App.Models;
+using Microsoft.AspNetCore.Session;
 
 namespace TrustPower_Item_Booking_Web_App.Controllers
 {
+
+
     public class BookingProcessController : Controller
     {
+        public class HomeController : Controller
+        {
+            private readonly IHttpContextAccessor _httpContextAccessor;
+            public HomeController(IHttpContextAccessor httpContextAccessor)
+            {
+                this._httpContextAccessor = httpContextAccessor;
+            }
+            //Write your action methods here
+        }
+
         private readonly BookingDBContext _context;
 
         public BookingProcessController(BookingDBContext context)
@@ -40,11 +56,19 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
             return View(mymodel);
         }
 
-       // [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Record(string PickUpDate, string ReturnDate, string ItemName )
         {
-                return View("../BookingProcess/InputAddress");
+
+           
+            Response.Cookies.Append("PickUpDate", PickUpDate);
+            Response.Cookies.Append("ReturnDate", ReturnDate);
+            Response.Cookies.Append("ItemName", ItemName);
+
+            
+
+            return View("../BookingProcess/InputAddress");
             
             
         }
@@ -66,4 +90,6 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
         }
        
     }
+
+   
 }

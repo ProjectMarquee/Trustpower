@@ -37,6 +37,11 @@ a, a:hover, a:active, a:visited {
   background-color: inherit;
   margin-right:10px;
   margin-left:10px;
+  color:white;
+}
+a .button {
+    color: white;
+    width: 170px;
 }
 .container-center {
   height: 100%;
@@ -61,4 +66,17 @@ thead {
 
 tbody th {
   font-weight:normal;
+}
+.button {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform:uppercase;
+}
+.a-button:link, .a-button:visited, .a-button:hover, .a-button:active {
+    display: block;
+    color: white;
+    width: 170px;
+    text-align: center;
+    float: right;
 }

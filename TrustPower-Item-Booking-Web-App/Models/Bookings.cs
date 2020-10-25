@@ -26,6 +26,8 @@ namespace TrustPower_Item_Booking_Web_App.Models
         public int ApplicantsId { get; set; }
         public int AddressId { get; set; }
 
+        public string RequestedItem { get; set; }
+
         public virtual Addresses Address { get; set; }
         public virtual Applicants Applicants { get; set; }
         public virtual Staff Staff { get; set; }

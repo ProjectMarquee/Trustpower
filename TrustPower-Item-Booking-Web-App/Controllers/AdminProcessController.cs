@@ -9,25 +9,23 @@ using TrustPower_Item_Booking_Web_App.Models;
 
 namespace TrustPower_Item_Booking_Web_App.Controllers
 {
-    public class BookingsController : Controller
+    public class AdminProcessController : Controller
     {
-        string cookie = "";
-
         private readonly BookingDBContext _context;
 
-        public BookingsController(BookingDBContext context)
+        public AdminProcessController(BookingDBContext context)
         {
             _context = context;
         }
 
-        // GET: Bookings
+        // GET: AdminProcess
         public async Task<IActionResult> Index()
         {
             var bookingDBContext = _context.Bookings.Include(b => b.Address).Include(b => b.Applicants).Include(b => b.Staff);
             return View(await bookingDBContext.ToListAsync());
         }
 
-        // GET: Bookings/Details/5
+        // GET: AdminProcess/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -48,42 +46,35 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
             return View(bookings);
         }
 
-        // GET: Bookings/Create
+        // GET: AdminProcess/Create
         public IActionResult Create()
         {
-         //   ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode");
-         //   ViewData["ApplicantsId"] = new SelectList(_context.Applicants, "ApplicantId", "Email");
-          //  ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "FirstName");
+            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode");
+            ViewData["ApplicantsId"] = new SelectList(_context.Applicants, "ApplicantId", "Email");
+            ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "FirstName");
             return View();
         }
 
-        // POST: Bookings/Create
+        // POST: AdminProcess/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("BookingId,Fees,DateReceived,DateOfApproval,EventDescription,ApprovedByStaffId,DisapprovedDescription,PickUpDate,ReturnDate,EvenStatus,EventName,SetUpRequested,StaffId,ApplicantsId,AddressId,RequestedItem")] Bookings bookings)
         {
-           // bookings.EvenStatus = "Incomplete";
             if (ModelState.IsValid)
             {
-                bookings.ApplicantsId = int.Parse(Request.Cookies["ApplicantId"]);
-                bookings.AddressId = int.Parse(Request.Cookies["AddressId"]);
-                bookings.PickUpDate = Convert.ToDateTime(Request.Cookies["PickUpDate"]);
-                bookings.ReturnDate = Convert.ToDateTime(Request.Cookies["ReturnDate"]);
-                bookings.EvenStatus = "Incomplete";
-                bookings.RequestedItem = Request.Cookies["ItemName"];
-                bookings.DateReceived = DateTime.Now;
                 _context.Add(bookings);
-
                 await _context.SaveChangesAsync();
-                return View();
+                return RedirectToAction(nameof(Index));
             }
-         
+            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode", bookings.AddressId);
+            ViewData["ApplicantsId"] = new SelectList(_context.Applicants, "ApplicantId", "Email", bookings.ApplicantsId);
+            ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "FirstName", bookings.StaffId);
             return View(bookings);
         }
 
-        // GET: Bookings/Edit/5
+        // GET: AdminProcess/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -96,16 +87,18 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
             {
                 return NotFound();
             }
-           
+            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode", bookings.AddressId);
+            ViewData["ApplicantsId"] = new SelectList(_context.Applicants, "ApplicantId", "Email", bookings.ApplicantsId);
+            ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "FirstName", bookings.StaffId);
             return View(bookings);
         }
 
-        // POST: Bookings/Edit/5
+        // POST: AdminProcess/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookingId,Fees,DateReceived,DateOfApproval,EventDescription,ApprovedByStaffId,DisapprovedDescription,PickUpDate,ReturnDate,EvenStatus,EventName,SetUpRequested,StaffId,ApplicantsId,AddressId")] Bookings bookings)
+        public async Task<IActionResult> Edit(int id, [Bind("BookingId,Fees,DateReceived,DateOfApproval,EventDescription,ApprovedByStaffId,DisapprovedDescription,PickUpDate,ReturnDate,EvenStatus,EventName,SetUpRequested,StaffId,ApplicantsId,AddressId,RequestedItem")] Bookings bookings)
         {
             if (id != bookings.BookingId)
             {
@@ -132,11 +125,13 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-           
+            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode", bookings.AddressId);
+            ViewData["ApplicantsId"] = new SelectList(_context.Applicants, "ApplicantId", "Email", bookings.ApplicantsId);
+            ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "FirstName", bookings.StaffId);
             return View(bookings);
         }
 
-        // GET: Bookings/Delete/5
+        // GET: AdminProcess/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -157,7 +152,7 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
             return View(bookings);
         }
 
-        // POST: Bookings/Delete/5
+        // POST: AdminProcess/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

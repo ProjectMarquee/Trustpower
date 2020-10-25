@@ -2,21 +2,33 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TrustPower_Item_Booking_Web_App.Models;
+using Microsoft.AspNetCore.Session;
 
 namespace TrustPower_Item_Booking_Web_App.Controllers
 {
     public class AddressesController : Controller
     {
+
+       
+
+        
+
+
+
+        //public int AddressId;
+
         private readonly BookingDBContext _context;
 
         public AddressesController(BookingDBContext context)
         {
             _context = context;
         }
+       
 
         // GET: Addresses
         public async Task<IActionResult> Index()
@@ -55,12 +67,27 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AddressId,StreetName,Suburb,PostCode,City")] Addresses addresses)
         {
+
+
             if (ModelState.IsValid)
             {
                 _context.Add(addresses);
                 await _context.SaveChangesAsync();
                 // return RedirectToAction(nameof(Index));
+
+
+                // string url = string.Format("/BookingProcess/InputApplicant?Id={0}",Id);
+
+                //TempData["myData"] = addresses.AddressId;
+                Response.Cookies.Append("AddressId", addresses.AddressId.ToString());
+                ViewBag.AddressId = addresses.AddressId;
+                
+
                 return View("../BookingProcess/InputApplicant");
+               
+
+
+
             }
             return View(addresses);
         }
