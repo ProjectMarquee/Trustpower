@@ -57,6 +57,7 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
             return View();
         }
 
+
         // POST: Bookings/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -77,7 +78,7 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
                 _context.Add(bookings);
 
                 await _context.SaveChangesAsync();
-                return View();
+                return View("../BookingProcess/Confirmation");
             }
          
             return View(bookings);
@@ -172,5 +173,7 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
         {
             return _context.Bookings.Any(e => e.BookingId == id);
         }
+
+        
     }
 }

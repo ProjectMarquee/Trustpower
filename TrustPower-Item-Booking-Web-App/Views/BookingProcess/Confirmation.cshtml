@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Confirmation";
+}
+<body>
+    <div class="container center">
+        <div class="vertical-center">
+            <br><br>
+
+            <h1>Your request has been recieved</h1>
+            <br>
+            <img src="~/images/check.png">
+            <br><br>
+            <h5>Please allow up to 3 business days for us to get back to you.</h5>
+            <br><br>
+
+            <!-- Button to view a list of bookings-->
+            <div class="text-center">
+                <a class="nav-link text-dark" asp-area="" asp-controller="BookingProcess" asp-action="BookingsList">
+                    <button class="button">
+                        <h5>YOUR BOOKINGS</h5>
+                    </button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</body>

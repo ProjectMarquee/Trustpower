@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Session;
 namespace TrustPower_Item_Booking_Web_App.Controllers
 {
 
-
+    
     public class BookingProcessController : Controller
     {
         public class HomeController : Controller
@@ -39,9 +39,17 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
             public IEnumerable<Bookings> Bookings { get; set; }
         }
 
-        public async Task<ActionResult> Index()
+        public  ActionResult TermsOfService()
         {
            
+            
+
+            
+            return View();
+        }
+        public async Task<ActionResult> Index()
+        {
+
             ViewModel mymodel = new ViewModel();
 
             var bookingDBContext = _context.Items;
@@ -50,12 +58,11 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
 
             mymodel.Items = _context.Items;
             mymodel.Bookings = _context.Bookings;
-            
 
-            
+
+
             return View(mymodel);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Record(string PickUpDate, string ReturnDate, string ItemName )
@@ -88,7 +95,18 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
         {
             return View();
         }
-       
+        public IActionResult Confirmation()
+        {
+            return View();
+        }
+        public  async Task<IActionResult> BookingsList()
+        {
+
+            var bookingDBContext = _context.Bookings.Include(b => b.Address).Include(b => b.Applicants).Include(b => b.Staff);
+            return View(await bookingDBContext.ToListAsync());
+            
+        }
+        
     }
 
    

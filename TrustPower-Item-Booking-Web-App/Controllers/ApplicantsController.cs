@@ -90,7 +90,7 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
             {
                 return NotFound();
             }
-         //   ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode", applicants.AddressId);
+        
             return View(applicants);
         }
 
@@ -126,7 +126,7 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-         //   ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode", applicants.AddressId);
+         
             return View(applicants);
         }
 
