@@ -1,0 +1,161 @@
+h1,h5,h4,p {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,h5 {
+  margin: 0;
+}
+
+h1{
+  font-weight: bold;
+  font-size: 26px;
+  color: #363c3e;
+  line-height: 24px;
+}
+
+h2{
+  font-weight: normal;
+  font-size: 20px;
+  color: #852ba8;
+  line-height: 24px;
+}
+
+h3{
+  font-weight: normal;
+  font-size: 18px;
+  color: #000000;
+}
+
+p1{
+  font-weight: normal;
+  color: #852ba8;
+  text-align: left!important;
+}
+
+body {
+  margin-top: 70px;
+  margin-bottom: 70px;
+  background: url(./images/background.png);
+}
+
+.container{
+  max-width: 800px;
+  background-color: #ffffff;
+  height: 50em!important;
+}
+
+/* .row {
+  background-color: #ffffff;
+  height: 50em;
+} */
+
+textarea {
+  resize: none;
+}
+
+.card-header {
+  background-color: rgba(255, 255, 255, 0);
+
+}
+
+.card, .card-header  {
+  border: 0px solid;
+  border-radius: none;
+}
+
+tbody {
+  background-color: #454f5e;
+  color: #ffffff;
+  font-weight: normal;
+}
+
+
+th {
+  font-weight: normal;
+  
+}
+
+td {
+  font-size: 22px;
+}
+
+tr {
+  border-bottom: 2px solid #4f5b6d;
+}
+
+a,a:hover,a:active,a:visited {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.btnr {
+  border: 1px solid #852ba8;
+  background-color: #852ba8;
+  border-radius: 20px;
+  padding: 12px;
+}
+
+.btnr:hover {
+  border: 1px solid #7f29a2;
+  background-color: #7f29a2;
+}
+
+.btnr:focus {
+  border: 1px solid #7f29a2;
+  background-color: #7f29a2;
+}
+
+.figure-img{
+  padding-right: 10em;
+}
+
+@media only screen and (max-width: 1700px) {
+  .figure-img{
+    display: none;
+  }
+}
+
+.custom-select {
+  color: #852ba8;
+  border: 1px solid #ffffff;
+}
+
+.btn, .btn-group {
+  width:100%;
+}
+
+.btn-nav {
+  color: rgb(38, 38, 38);
+  background-color: transparent;
+  border: 1px solid #c7c7c7;
+  border-radius: 0rem;
+  font-size: 18px;
+  padding: 14px;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+    color: #fff;
+    background-color: #454f5e;
+    border-color: #454f5e;
+}
+
+.btn-secondary:hover{
+  background-color: #546070;
+  border-color: #546070;
+}
+
+.btn-secondary:focus{
+  background-color: #5c697b;
+  border-color: #5c697b;
+}
+
+.list-new-item {
+  background-color: #ffffff;
+  border: 1px solid #e6e6e6;
+}
+
+.no-color{
+  background-color: #ffffff00!important;
+  color: black;
+}

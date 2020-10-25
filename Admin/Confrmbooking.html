@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <img src="images/logo.png" class="figure-img img-fluid float-right">
+  <div class="container text-center h-100">
+
+    <div class="row justify-content-center ">
+
+      <div class="btn-group" role="group" aria-label="btn">
+        <a type="button" href="Appbooking.html" class="btn btn-secondary btn-nav">Booking Applications</a>
+        <a type="button" href="Confrmbooking.html" class="btn btn-secondary active btn-nav">Confirmed Bookings</a>
+        <atype="button" class="btn btn-secondary btn-nav">Close Bookings</a>
+      </div>
+
+      <div class="col-sm-11">
+        <br>
+        <h1 class="align-middle">Confirmed Bookings</h1>
+        <br><br><br>
+        <div class="card">
+          <div class="card-header">
+
+            <div class="col-md-6 mb-3">
+              <!-- <label for="country">Sort by</label> -->
+              <div class="input-group-prepend">
+                <span class="input">Sort by: </span>
+              </div>
+              <select class="custom-select d-block w-100" id="" required>
+                  <option value="">Application Recieved Date</option>
+                  <option>Closeest Pick Up Date</option>
+              </select>
+          </div>
+
+          </div>
+
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th scope="col">Pick up Date</th>
+                <th scope="col">Return Date</th>
+                <th scope="col">Applicant Name</th>
+                <th scope="col">Item Prefence</th>
+                <th scope="col">Item ID</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class="align-middle">6 Mar</td>
+                <td class="align-middle">8 Mar</td>
+                <td class="align-middle">Jo</td>
+                <td class="align-middle">Marquee</td>
+                <td class="align-middle">M1</td>
+                <td class="align-middle"><button type="button" class="btn btnr btn-primary">Review Booking</button></td>
+              </tr>
+
+
+              <tr>
+                <td class="align-middle">6 Mar</td>
+                <td class="align-middle">8 Mar</td>
+                <td class="align-middle">Jo</td>
+                <td class="align-middle">Marquee</td>
+                <td class="align-middle">M1</td>
+                <td class="align-middle"><button type="button" class="btn btnr btn-primary">Review Booking</button></td>
+              </tr>
+
+              <tr>
+                <td class="align-middle">6 Mar</td>
+                <td class="align-middle">8 Mar</td>
+                <td class="align-middle">Jo</td>
+                <td class="align-middle">Marquee</td>
+                <td class="align-middle">M1</td>
+                <td class="align-middle"><button type="button" class="btn btnr btn-primary">Review Booking</button></td>
+              </tr>
+            </tbody>
+          </table>  
+          <!-- <div class="card-footer">
+            Card Footer
+          </div> -->
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+  
+</body>
+
+</html>
