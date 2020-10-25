@@ -47,7 +47,7 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
         // GET: Applicants/Create
         public IActionResult Create()
         {
-            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode");
+           // ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode");
             return View();
         }
 
