@@ -1,0 +1,100 @@
+﻿@model TrustPower_Item_Booking_Web_App.Models.Addresses
+
+@{
+    ViewData["Title"] = "Create";
+}
+<!--
+<h1>Create</h1>
+
+<h4>Addresses</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Addresses" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StreetName" class="control-label"></label>
+                <input asp-for="StreetName" class="form-control" />
+                <span asp-validation-for="StreetName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Suburb" class="control-label"></label>
+                <input asp-for="Suburb" class="form-control" />
+                <span asp-validation-for="Suburb" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostCode" class="control-label"></label>
+                <input asp-for="PostCode" class="form-control" />
+                <span asp-validation-for="PostCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input  type="submit" value="Create" class="btn btn-primary"  />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+    <div class="container text-center">
+    <div class="row">
+        <div class="col-lg-3 col-md-3"></div>
+            <div class="col-lg-6 col-md-6">
+                    <h1>Address</h1>
+                    <h5>Please enter the address of your event</h5>
+                    <br /><br />
+                          <div class="row">
+                              <!--<div asp-validation-summary="ModelOnly" class="text-danger"></div>-->
+<div class="container text-center">
+    <div class="row">
+        <div class="col-lg-3 col-md-3"></div>
+        <div class="col-lg-6 col-md-6">
+            <h1>Address</h1>
+            <h5>Please enter the address of your event</h5>
+            <br /><br />
+            <div class="row">
+                <!--<div asp-validation-summary="ModelOnly" class="text-danger"></div>-->
+                <form method="post" id="addressForm" asp-controller="Addresses" asp-action="Create">
+                    <div class="form-row">
+                        <div class="form-group col-12">
+                            <input type="text" placeholder="Street Name" asp-for="StreetName" id="StreetName" class="form-control" required autocomplete="off" />
+                            <span asp-validation-for="StreetName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-12">
+                            <input type="text" placeholder="Suburb" asp-for="Suburb" id="Suburb" class="form-control" required autocomplete="off" />
+                            <span asp-validation-for="Suburb" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-9">
+                            <input type="text" placeholder="City" asp-for="City" id="City" class="form-control" required autocomplete="off" />
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-3">
+                            <input type="text" placeholder="Postcode" asp-for="PostCode" id="PostCode" class="form-control" required autocomplete="off" />
+                            <span asp-validation-for="PostCode" class="text-danger"></span>
+                        </div>
+                        <div class="col-6 text-right pt-4">
+                            <a asp-action="Index" class="button a-button">
+                                BACK
+                            </a>
+                        </div>
+                        <div class="form-group col-6 text-left pt-4">
+                            <input type="submit" value="Next" class="button input-button">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3"></div>
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
+
+    </div>
+</div>

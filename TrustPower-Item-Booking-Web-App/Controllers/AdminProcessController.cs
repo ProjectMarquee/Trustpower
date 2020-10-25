@@ -18,11 +18,37 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
             _context = context;
         }
 
+        public class ViewModel
+        {
+            public IEnumerable<Items> Items { get; set; }
+            public IEnumerable<Bookings> Bookings { get; set; }
+
+            public IEnumerable<Applicants> Applicants { get; set; }
+
+
+            public IEnumerable<Applicants> Address { get; set; }
+        }
+
+
+
+
+
+
+
+
+
+
         // GET: AdminProcess
         public async Task<IActionResult> Index()
         {
+
+
+
             var bookingDBContext = _context.Bookings.Include(b => b.Address).Include(b => b.Applicants).Include(b => b.Staff);
-            return View(await bookingDBContext.ToListAsync());
+            ViewModel model = new ViewModel();
+            
+
+            return View(model);
         }
 
         // GET: AdminProcess/Details/5
@@ -49,9 +75,7 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
         // GET: AdminProcess/Create
         public IActionResult Create()
         {
-            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode");
-            ViewData["ApplicantsId"] = new SelectList(_context.Applicants, "ApplicantId", "Email");
-            ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "FirstName");
+           
             return View();
         }
 
