@@ -134,6 +134,10 @@ a,a:hover,a:active,a:visited {
   padding: 14px;
 }
 
+.btn-whitec{
+  color: #fff!important;
+}
+
 .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
     color: #fff;
     background-color: #454f5e;
@@ -160,7 +164,15 @@ a,a:hover,a:active,a:visited {
   color: black;
 }
 
-.bg-danger{
+.bg-trust{
   background-color: #721ba4!important;
-  transition: 500ms;
+}
+
+.bg-trust:hover {
+  border: 1px solid #7f29a2!important;
+  background-color: #7f29a2!important;
+}
+
+.modal{
+  background-color: #ffffff94;
 }

@@ -64,14 +64,47 @@
         <br><br><br>
         <h2>Approve or Deny Application</h2>
         <br>
-        <button type="button" class="btn btn-primary bg-danger">Deny</button>
+        <button type="button" class="btn btn-primary bg-trust" data-toggle="modal" data-target="#ModalCenter2">Deny</button>
         <br><br>
-        <button type="button" class="btn btn-primary bg-dark">Approve</button>
+        <button type="button" class="btn btn-primary bg-dark" data-toggle="modal" data-target="#ModalCenter">Approve</button>
         <br><br>
 
-        <button type="button" class="btn btn-secondary">Cancel</button>
+        <a type="button" class="btn btn-secondary btn-whitec" href="Appbooking.html">Cancel</a>
 
-        
+
+        <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="ModalLongTitle">Application</h5>
+              </div>
+              <div class="modal-body">
+                Confirm Application Approval
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary bg-dark">Comfirm</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="ModalCenter2" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle2" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="ModalLongTitle2">Deny Application</h5>
+              </div>
+              <div class="modal-body">
+                Deny Application Approval
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary bg-dark">Comfirm</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <br>
         <br>
