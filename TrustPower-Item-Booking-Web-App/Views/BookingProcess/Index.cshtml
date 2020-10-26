@@ -1,86 +1,83 @@
 ﻿@model TrustPower_Item_Booking_Web_App.Controllers.BookingProcessController.ViewModel
 <!-- model IEnumerable<TrustPower_Item_Booking_Web_App.Models.Items>-->
 
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Index"; }
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col-lg-1 col-md-1"></div>
+        <div class="col-md-10">
+
+            <!-- Title 
+            <h1>Application to Hire Trustpower Marquees</h1>
+            <h5>Please fill out the form below and we will get back to you.</h5>-->
+
+            <h1>Step 1: Item Selection</h1>
+            <h5>Please select the item you would like to hire.</h5>
+
+            <br><br>
+
+            @{ List<SelectListItem> listItems = new List<SelectListItem>();
+
+                List<string> UniqueItems = new List<string>();
+
+                foreach (var item in Model.Items)
+                {
+                    if (UniqueItems.Contains(item.ItemName.ToString()))
+                    {
+
+                    }
+                    else
+                    {
+                        UniqueItems.Add(item.ItemName.ToString());
+                    }
 
 
 
+                }
+                foreach (string i in UniqueItems)
+                {
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = i.ToString(),
+                        Value = i.ToString(),
 
-<h1>Index</h1>
+                    });
+                } }
 
-<div class="col-md-10">
+            @{ IEnumerable<Bookings> books = Model.Bookings; }
 
-    @{
-
-
-
-
-        List<SelectListItem> listItems = new List<SelectListItem>();
-
-        List<string> UniqueItems = new List<string>();
-
-        foreach (var item in Model.Items)
-        {
-            if (UniqueItems.Contains(item.ItemName.ToString()))
-            {
-
-            }
-            else
-            {
-                UniqueItems.Add(item.ItemName.ToString());
-            }
-
-
-
-        }
-        foreach (string i in UniqueItems)
-        {
-            listItems.Add(new SelectListItem
-            {
-                Text = i.ToString(),
-                Value = i.ToString(),
-
-            });
-        }
-
-    }
-
-    @{
-        IEnumerable<Bookings> books = Model.Bookings;
-    }
-
-    @{
-        Bookings Booking = new Bookings();
-    }
-
-
-    <form asp-controller="BookingProcess" asp-action="Record">
-
-        <select name="ItemName" asp-items="listItems" class="form-control"> </select>
-
-
-        <div class="form-group">
-           
-            <input type="date" name="PickUpDate" id="PickUpId">
-            
+            @{ Bookings Booking = new Bookings(); }
+            <div class="col-lg-1 col-md-1"></div>
         </div>
-        <div class="form-group">
+    </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="row">
+                    <form asp-controller="BookingProcess" asp-action="Record">
+                        <div class="form-row">
+                            <div class="form-group col-12">
+                                <select name="ItemName" asp-items="listItems" class="form-control text-center" required> </select>
+                            </div>
+                            <div class="form-group col-12">
+                                <label class="text-white"><b>Pick Up Date</b></label>
+                                <input class="form-control text-center" type="date" name="PickUpDate" id="PickUpId" min="@DateTime.Now.ToString("yyyy-MM-dd")" required>
 
-            <input type="date" name="ReturnDate" id="ReturnDateId">
-           
-        </div>
-
-        <div class="form-group">
-            <input type="submit" value="Record" class="btn btn-primary form-control" />
-        </div>
-
-    </form>
-
-
-
-
+                            </div>
+                            <div class="form-group col-12">
+                                <label class="text-white"><b>Return Date</b></label>
+                                <input class="form-control text-center" type="date" name="ReturnDate" id="ReturnDateId" min="@DateTime.Now.ToString("yyyy-MM-dd")" required>
+                            </div>
+         
+                            <div class="form-group col-12 pt-4 text-center">
+                                <input type="submit" value="Next" class="button input-button">
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
 
 </div>
-

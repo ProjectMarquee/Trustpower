@@ -1,0 +1,192 @@
+﻿@{
+    ViewData["Title"] = "Applicant Form";
+}
+<body>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-3 col-md-3"></div>
+            <div class="col-lg-6 col-md-6">
+
+
+                <!-- Title -->
+                <h1>Contact Details</h1>
+                <h5>Please enter your contact details</h5>
+
+
+                <br><br>
+
+                <!-- FORM -->
+                <div class="row">
+
+                    <!-- First Name -->
+                    <div class="form-group col-sm-6">
+                        <input type="text" class="form-control" placeholder="First Name*">
+                    </div>
+
+
+                    <!-- Last Name -->
+                    <div class="form-group col-sm-6">
+                        <input type="text" class="form-control" placeholder="Last Name*">
+                    </div>
+
+                </div>
+
+
+                <!-- Email Address-->
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Email Address*">
+                </div>
+
+
+                <div class="row">
+
+                    <!-- Mobile Number-->
+                    <div class="form-group col-sm-6">
+                        <input type="text" class="form-control" placeholder="Mobile Number">
+                    </div>
+
+
+                    <!-- Phone Number -->
+                    <div class="form-group col-sm-6">
+                        <input type="text" class="form-control" placeholder="Phone Number">
+                    </div>
+
+                </div>
+
+
+                <!-- Street Name -->
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Street Name">
+                </div>
+
+
+                <!-- Suburb -->
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Suburb">
+                </div>
+
+
+                <div class="row">
+
+                    <!-- City -->
+                    <div class="form-group col-sm-9">
+                        <input type="text" class="form-control" placeholder="City">
+                    </div>
+
+
+                    <!-- Postcode -->
+                    <div class="form-group col-sm-3">
+                        <input type="text" class="form-control" placeholder="Postcode">
+                    </div>
+
+                </div>
+
+
+                <br><br>
+
+                <!-- Title -->
+                <h1>Event Details</h1>
+                <h5>Please enter your event details</h5>
+
+
+                <br><br>
+
+
+                <!-- Name of Event -->
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Name of Event*">
+                </div>
+
+
+                <!-- Description of Event -->
+                <div class="form-group">
+                    <textarea class="form-control mw-100" placeholder="Description of Event*"></textarea>
+                </div>
+
+
+                <!-- Street Name -->
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Street Name">
+                </div>
+
+
+                <!-- Suburb -->
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Suburb">
+                </div>
+
+
+                <div class="row">
+
+                    <!-- City -->
+                    <div class="form-group col-sm-9">
+                        <input type="text" class="form-control" placeholder="City">
+                    </div>
+
+
+                    <!-- Postcode-->
+                    <div class="form-group col-sm-3">
+                        <input type="text" class="form-control" placeholder="Postcode">
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <!-- Pickup Date-->
+                    <div class="form-group col-sm-6">
+                        <h4 class="text-left">Pickup Date</h4>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-lock"></span>
+                            </div>
+                            <input type="text" disabled class="form-control" placeholder="22/09/2020">
+                        </div>
+                    </div>
+
+                    <!-- Return Date -->
+                    <div class="form-group col-sm-6">
+                        <h4 class="text-left">Return Date</h4>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-lock"></span>
+                            </div>
+                            <input type="text" disabled class="form-control" placeholder="25/09/2020">
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <!-- Terms and Conditions Check-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                    <label class="form-check-label">
+                        <h5>I agree to the <u> <a class="nav-link text-dark" asp-area="" asp-controller="ApplicantBookingProcess" asp-action="TermsOfService">Terms Of Service</a></u></h5>
+                    </label>
+                </div>
+                <br>
+
+
+                <!-- Back to calendar screen -->
+                <a class="nav-link text-dark" asp-area="" asp-controller="ApplicantBookingProcess" asp-action="ItemCalandar">
+                    <button class="button">
+                        <h5>BACK</h5>
+                    </button>
+                </a>
+
+                <!-- Submit form -->
+                <a class="nav-link text-dark" asp-area="" asp-controller="ApplicantBookingProcess" asp-action="Confirmation">
+                    <button class="button">
+                        <h5>SUBMIT</h5>
+                    </button>
+                </a>
+
+
+
+            </div>
+            <div class="col-lg-3 col-md-3"></div>
+        </div>
+    </div>
+</body>

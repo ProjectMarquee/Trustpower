@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Bookings";
+}
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-1 col-md-1"></div>
+            <div class="col-lg-10 col-md-10">
+
+                <!-- Title -->
+                <h1 class="text-center">Your Current Bookings</h1>
+
+
+                <br><br>
+
+
+                <!-- Table of bookings -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Event Name</th>
+                            <th>Marquee</th>
+                            <th>Pickup Date</th>
+                            <th>Return Date</th>
+                            <th>Status</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Bethlehem Gala</th>
+                            <td>5m x 10m</td>
+                            <td>22/09/2020</td>
+                            <td>25/09/2020</td>
+                            <td>Pending Approval</td>
+                            <td><u><a href="#.html">EDIT</a></u></td>
+                            <td><u><a href="#.html">DELETE</a></u></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <br><br>
+
+
+                <!-- Button to go to the calendar page -->
+                <div class="text-center">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="ApplicantBookingProcess" asp-action="ItemCalandar">
+                        <button class="button">
+                            <h5>ADD BOOKING</h5>
+                        </button>
+                    </a>
+                </div>
+
+
+            </div>
+            <div class="col-lg-1 col-md-1"></div>
+        </div>
+    </div>
+</body>

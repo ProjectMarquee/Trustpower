@@ -146,7 +146,9 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
             }
 
             var bookings = await _context.Bookings
-                
+                .Include(b => b.Address)
+                .Include(b => b.Applicants)
+                .Include(b => b.Staff)
                 .FirstOrDefaultAsync(m => m.BookingId == id);
             if (bookings == null)
             {
@@ -161,14 +163,10 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-           
             var bookings = await _context.Bookings.FindAsync(id);
-           // var tracking = await _context.Tracking.FindAsync(id);
-          //  tracking.
-          //  bookings.Tracking = null;
             _context.Bookings.Remove(bookings);
             await _context.SaveChangesAsync();
-            return View("../BookingProcess/BookingsList");
+            return RedirectToAction(nameof(Index));
         }
 
         private bool BookingsExists(int id)
