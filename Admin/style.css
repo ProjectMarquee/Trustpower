@@ -159,3 +159,8 @@ a,a:hover,a:active,a:visited {
   background-color: #ffffff00!important;
   color: black;
 }
+
+.bg-danger{
+  background-color: #721ba4!important;
+  transition: 500ms;
+}
