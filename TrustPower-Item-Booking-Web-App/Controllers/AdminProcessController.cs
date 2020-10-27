@@ -18,10 +18,57 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
             _context = context;
         }
 
+        public async Task<IActionResult> ApplicationBookingReview()
+        {
+            var bookingDBContext = _context.Bookings.Include(b => b.Address).Include(b => b.Applicants).Include(b => b.Staff);
+            return View(await bookingDBContext.ToListAsync());
+            
+        }
+
+        public async Task<IActionResult> BookingReview()
+        {
+            var bookingDBContext = _context.Bookings.Include(b => b.Address).Include(b => b.Applicants).Include(b => b.Staff);
+            return View(await bookingDBContext.ToListAsync());
+
+        }
+
+        public IActionResult ApplicantDetails()
+        {
+            
+
+
+            return View();
+        }
+        public IActionResult HireDetails()
+        {
+
+
+
+            return View();
+        }
+
+        public IActionResult ApproveOrDeny()
+        {
+
+
+
+            return View();
+        }
+        public IActionResult EventDetails()
+        {
+
+
+
+            return View();
+        }
+
+
+
+
         // GET: AdminProcess
         public async Task<IActionResult> Index()
         {
-            var bookingDBContext = _context.Bookings.Include(b => b.Address).Include(b => b.Applicants).Include(b => b.Staff);
+            var bookingDBContext = _context.Bookings.Include(b => b.Address.AddressId).Include(b => b.Applicants.AddressId).Include(b => b.Staff.StaffId);
             return View(await bookingDBContext.ToListAsync());
         }
 
@@ -49,9 +96,7 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
         // GET: AdminProcess/Create
         public IActionResult Create()
         {
-            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode");
-            ViewData["ApplicantsId"] = new SelectList(_context.Applicants, "ApplicantId", "Email");
-            ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "FirstName");
+         
             return View();
         }
 
@@ -68,9 +113,7 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode", bookings.AddressId);
-            ViewData["ApplicantsId"] = new SelectList(_context.Applicants, "ApplicantId", "Email", bookings.ApplicantsId);
-            ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "FirstName", bookings.StaffId);
+           
             return View(bookings);
         }
 
@@ -87,9 +130,7 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
             {
                 return NotFound();
             }
-            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "PostCode", bookings.AddressId);
-            ViewData["ApplicantsId"] = new SelectList(_context.Applicants, "ApplicantId", "Email", bookings.ApplicantsId);
-            ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "FirstName", bookings.StaffId);
+           
             return View(bookings);
         }
 

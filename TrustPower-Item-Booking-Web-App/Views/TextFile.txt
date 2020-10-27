@@ -1,0 +1,6 @@
+﻿okay so priorities (in order) are:
+1. Delete functionality
+2. Admin pages need to be shoved into the views somehow but idk how to call them? or where to put them? This needs to be done sooner than later because I have a feeling ill need to do some funky css to fix incompatibility between the user side and the admin side stylesheets....... and i wont have much time to do that tomorrow if you leave it too long :eyes: 
+3. Back buttons
+4. Edit 
+5. literally everything else

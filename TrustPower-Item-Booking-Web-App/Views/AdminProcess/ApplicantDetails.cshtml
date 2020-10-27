@@ -1,0 +1,107 @@
+﻿@model TrustPower_Item_Booking_Web_App.Models.Addresses
+
+@{
+    ViewData["Title"] = "ApplicantDetails";
+    Layout = "../Shared/_AdminLayout.cshtml";
+}
+<!---
+<div>
+    <h4>Addresses</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StreetName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StreetName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Suburb)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Suburb)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PostCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PostCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.City)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>-->
+
+    <img src="~/images/logo.png" class="figure-img img-fluid float-right">
+    <div class="container text-center h-100">
+
+        <div class="row justify-content-center">
+
+            <div class="btn-group" role="group" aria-label="btn">
+                <a type="button" asp-controller="AdminProcess" asp-action="ApplicantDetails" class="btn btn-secondary btn-nav active ">Applicant Details</a>
+                <a type="button" asp-controller="AdminProcess" asp-action="EventDetails" class="btn btn-secondary btn-nav">Event Details</a>
+                <a type="button" asp-controller="AdminProcess" asp-action="HireDetails"  class="btn btn-secondary btn-nav">Hire Details</a>
+                <a type="button" asp-controller="AdminProcess" asp-action="ApproveOrDeny"  class="btn btn-secondary btn-nav">Approve/Deny</a>
+            </div>
+
+            <div class="col-sm-11">
+                <br>
+                <h1 class="align-middle">Applicant Details</h1>
+                <br><br><br>
+
+
+
+                <div class="row">
+                    <div class="col-sm-offset-1 col-sm-5">
+                        <h2>Applicant name:</h2>
+                        <h3>Jo Erickson</h3>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="float-right">
+                            <h2>Contact phone number:</h2>
+                            <ul class="list-group list-group-flush list-new-item">
+                                <li class="list-group-item">027 011 0222</li>
+                                <li class="list-group-item">028 414 8042</li>
+                                <li class="list-group-item">07 587 3117</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-sm-offset-1 col-sm-5">
+                        <h2>Applicant Adress</h2>
+                        <p1>Street Name:</p1><br>
+                        <p1>Street Type:</p1><br>
+                        <p1>Street Number:</p1><br>
+                        <p1>Suburb:</p1><br>
+                        <p1>City:</p1><br>
+                        <p1>Island:</p1><br>
+                    </div>
+                    <div class="col-sm-5">
+                        <h2>Applicant Adress</h2>
+                        <p3>badqam-4564@yopmail.com</p3><br><br>
+                        <h2>Contatact phone number of responcible party</h2>
+                        <p3>027 011 0222</p3>
+                    </div>
+
+
+                </div>
+
+
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+        <!-- <button type="button" class="btn btn-primary">Cancel</button> -->
+    </div>

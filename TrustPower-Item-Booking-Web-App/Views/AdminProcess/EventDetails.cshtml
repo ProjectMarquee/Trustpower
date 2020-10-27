@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Event Details";
+    Layout = "../Shared/_AdminLayout.cshtml";
+}
+<img src="~/images/logo.png" class="figure-img img-fluid float-right">
+<div class="container text-center h-100">
+
+    <div class="row justify-content-center">
+
+        <div class="btn-group" role="group" aria-label="btn">
+            <a type="button" asp-controller="AdminProcess" asp-action="ApplicantDetails" class="btn btn-secondary btn-nav">Applicant Details</a>
+            <a type="button" asp-controller="AdminProcess" asp-action="EventDetails" class="btn btn-secondary btn-nav active">Event Details</a>
+            <a type="button" asp-controller="AdminProcess" asp-action="HireDetails" class="btn btn-secondary btn-nav">Hire Details</a>
+            <a type="button" asp-controller="AdminProcess" asp-action="ApproveOrDeny" class="btn btn-secondary btn-nav">Approve/Deny</a>
+        </div>
+
+        <div class="col-sm-11">
+            <br>
+            <h1 class="align-middle">Event Details</h1>
+            <br><br><br>
+
+
+
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-5">
+                    <h2>Event name:</h2>
+                    <h3>Bethlehem</h3>
+                </div>
+                <div class="col-sm-5">
+                    <div>
+                        <h2>Date of Event(s)</h2>
+                        <ul class="list-group list-group-flush list-new-item">
+                            <li class="list-group-item">6th mar</li>
+                            <li class="list-group-item">7th mar</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-5">
+                    <h2>Event Adress</h2>
+                    <p1>Street Name:</p1><br>
+                    <p1>Street Type:</p1><br>
+                    <p1>Street Number:</p1><br>
+                    <p1>Suburb:</p1><br>
+                    <p1>City:</p1><br>
+                    <p1>Island:</p1><br>
+                </div>
+                <div class="col-sm-5">
+                    <div class="float-right">
+                        <h2>Date of Event(s)</h2>
+                        <ul class="list-group list-group-flush list-new-item">
+                            <li class="list-group-item">
+                                Bethlehem Gala Is a large evening event hosting 2000 people.
+
+                                we provide a small festival for the Bethlehem Community Centered around Family and Music
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+    <!-- <button type="button" class="btn btn-primary">Cancel</button> -->
+</div>

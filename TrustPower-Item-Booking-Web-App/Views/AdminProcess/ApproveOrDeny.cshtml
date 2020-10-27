@@ -1,0 +1,113 @@
+﻿@{
+    ViewData["Title"] = "Hire Details";
+    Layout = "../Shared/_AdminLayout.cshtml";
+}
+
+<img src="~/images/logo.png" class="figure-img img-fluid float-right">
+<div class="container text-center h-100">
+
+    <div class="row justify-content-center">
+
+        <div class="btn-group" role="group" aria-label="btn">
+            <a type="button" asp-controller="AdminProcess" asp-action="ApplicantDetails" class="btn btn-secondary btn-nav">Applicant Details</a>
+            <a type="button" asp-controller="AdminProcess" asp-action="EventDetails" class="btn btn-secondary btn-nav">Event Details</a>
+            <a type="button" asp-controller="AdminProcess" asp-action="HireDetails" class="btn btn-secondary btn-nav">Hire Details</a>
+            <a type="button" asp-controller="AdminProcess" asp-action="ApproveOrDeny" class="btn btn-secondary btn-nav active">Approve/Deny</a>
+        </div>
+
+        <div class="col-sm-11">
+            <br>
+            <h1 class="align-middle">Event Details</h1>
+            <br><br><br>
+
+
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-5">
+                    <div>
+                        <h2>Applicant name:</h2>
+                        <h3>Jo Erickson</h3>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div>
+                        <h2>Event Name:</h2>
+                        <h3>Bethlehem</h3>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-5">
+                    <h2>Items to lend</h2>
+                    <ul class="list-group list-group-flush list-new-item">
+                        <li class="list-group-item">Marquee 5m x 10mm<br> M1</li>
+                        <li class="list-group-item">Marquee 6M x 8m<br> M2</li>
+                    </ul>
+                    <!-- </div>
+                    <div class="col-sm-5"> -->
+                </div>
+
+
+            </div>
+            <br><br><br>
+            <h2>Approve or Deny Application</h2>
+            <br>
+            <button type="button" class="btn btn-primary bg-trust" data-toggle="modal"
+                    data-target="#ModalCenter2">
+                Deny
+            </button>
+            <br><br>
+            <button type="button" class="btn btn-primary bg-dark" data-toggle="modal"
+                    data-target="#ModalCenter">
+                Approve
+            </button>
+            <br><br>
+
+            <a type="button" class="btn btn-secondary btn-whitec" asp-controller="AdminProcess" asp-action="ApplicationBookingReview" >Cancel</a>
+
+
+            <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ModalLongTitle">Application</h5>
+                        </div>
+                        <div class="modal-body">
+                            Confirm Application Approval
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <a type="button" asp-controller="AdminProcess" asp-action="ApplicationBookingReview" class="btn btn-primary bg-dark">Comfirm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="ModalCenter2" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle2"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ModalLongTitle2">Deny Application</h5>
+                        </div>
+                        <div class="modal-body">
+                            Deny Application Approval
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <a type="button" asp-controller="AdminProcess" asp-action="ApplicationBookingReview" class="btn btn-primary bg-dark">Comfirm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+

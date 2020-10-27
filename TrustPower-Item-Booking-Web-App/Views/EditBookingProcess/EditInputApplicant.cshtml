@@ -3,12 +3,12 @@
 @{
     ViewData["Title"] = "Create";
 
-  
+
 }
 @{ 
-    
-    int x = @ViewBag.AddressId;
 
+
+    int x = ViewBag.EditApplicantId;
 }
 
 <div class="container text-center">
@@ -22,35 +22,36 @@
             <h5>Please enter your contact details.</h5>
             <br /><br />
             <div class="row">
-                <form asp-controller="Applicants" asp-action="Create">
-                    <input type="hidden" asp-for="AddressId" value="@x" />
+                <form asp-controller="Applicants" asp-action="Edit">
+                    <input type="hidden" asp-for="ApplicantId" value="@x"/>
+                    
                     <div class="form-row">
                         <div class="form-group col-6">
-                            <input type="text" placeholder="First Name" asp-for="FirstName" class="form-control" required autocomplete="off" maxlength="50"/>
+                            <input type="text" placeholder="First Name" asp-for="FirstName" class="form-control" required autocomplete="off" maxlength="50" />
                             <span asp-validation-for="FirstName" class="text-danger"></span>
                         </div>
                         <div class="form-group col-6">
-                            <input type="text" placeholder="Last Name" asp-for="Surname" class="form-control" required autocomplete="off" maxlength="50"/>
+                            <input type="text" placeholder="Last Name" asp-for="Surname" class="form-control" required autocomplete="off" maxlength="50" />
                             <span asp-validation-for="Surname" class="text-danger"></span>
                         </div>
                         <!--<div class="form-group col-12">-->
                         <input type="hidden" placeholder="Password" value="1234" asp-for="Password" class="form-control" required autocomplete="off" />
                         <!--<span asp-validation-for="Password" class="text-danger"></span>
-                </div>-->
+        </div>-->
                         <div class="form-group col-12">
-                            <input type="email" placeholder="Email" asp-for="Email" class="form-control" required autocomplete="off" maxlength="50"/>
+                            <input type="email" placeholder="Email" asp-for="Email" class="form-control" required autocomplete="off" maxlength="50" />
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="form-group col-12">
-                            <input type="number" placeholder="Mobile Number" asp-for="MobileNumber" class="form-control" required autocomplete="off" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="14"/>
+                            <input type="number" placeholder="Mobile Number" asp-for="MobileNumber" class="form-control" required autocomplete="off" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="14" />
                             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                         </div>
                         <div class="form-group col-12">
-                            <input type="number" placeholder="Phone Number" asp-for="PhoneNumber" class="form-control" required autocomplete="off" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="14"/>
+                            <input type="number" placeholder="Phone Number" asp-for="PhoneNumber" class="form-control" required autocomplete="off" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="14" />
                             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                         </div>
                         <div class="form-group col-12">
-                            <input type="text" placeholder="Organization Name" asp-for="OrganisationName" class="form-control" autocomplete="off" maxlength="50"/>
+                            <input type="text" placeholder="Organization Name" asp-for="OrganisationName" class="form-control" autocomplete="off" maxlength="50" />
                             <span asp-validation-for="OrganisationName" class="text-danger"></span>
                         </div>
                         <div class="form-group col-12 text-center pt-4">

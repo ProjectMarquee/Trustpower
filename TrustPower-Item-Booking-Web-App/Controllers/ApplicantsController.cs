@@ -63,6 +63,12 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ApplicantId,FirstName,Surname,Password,Email,MobileNumber,PhoneNumber,OrganisationName,AddressId")] Applicants applicants)
         {
+
+           
+            
+                
+            
+            
             
             if (ModelState.IsValid)
             {
@@ -101,6 +107,10 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ApplicantId,FirstName,Surname,Password,Email,MobileNumber,PhoneNumber,OrganisationName,AddressId")] Applicants applicants)
         {
+
+            //var applicant = await _context.Applicants.FindAsync(int.Parse(Request.Cookies["ApplicantId"]));
+            id = int.Parse(Request.Cookies["EditApplicantId"]);
+           // id = int.Parse(Request.Cookies["Applicant Id"]);
             if (id != applicants.ApplicantId)
             {
                 return NotFound();
@@ -110,8 +120,25 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
             {
                 try
                 {
-                    _context.Update(applicants);
+
+                    
+                    var updatedApplicant = _context.Applicants.Where(a => a.ApplicantId == id).FirstOrDefault();
+                    
+                    updatedApplicant.FirstName = applicants.FirstName;
+                    updatedApplicant.Surname = applicants.Surname;
+                    updatedApplicant.PhoneNumber = applicants.PhoneNumber;
+                    updatedApplicant.Email = applicants.Email;
+                    updatedApplicant.OrganisationName = applicants.OrganisationName;
+                    updatedApplicant.MobileNumber = applicants.MobileNumber;
+
+                    _context.Update(updatedApplicant);
+                    
+                    
+
+
+                    
                     await _context.SaveChangesAsync();
+
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,10 +151,36 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+
+                var bookings = await _context.Bookings.FindAsync(int.Parse(Request.Cookies["EditBookingId"]));
+
+                ViewBag.EditBookingId = int.Parse(Request.Cookies["EditBookingId"]);
+
+
+                return View("../EditBookingProcess/EditInputBooking", bookings);
             }
          
             return View(applicants);
+
+
+            /*
+             *  _context.Add(applicants);
+                
+                await _context.SaveChangesAsync();
+
+                Response.Cookies.Append("ApplicantId", applicants.ApplicantId.ToString());
+                return View("../BookingProcess/InputBooking");
+
+
+            -----
+
+
+
+               var applicants = await _context.Applicants.FindAsync(id);
+            _context.Applicants.Remove(applicants);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+            */
         }
 
         // GET: Applicants/Delete/5

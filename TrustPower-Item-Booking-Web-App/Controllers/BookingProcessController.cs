@@ -102,12 +102,44 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
         public  async Task<IActionResult> BookingsList()
         {
 
-            var bookingDBContext = _context.Bookings.Include(b => b.Address).Include(b => b.Applicants).Include(b => b.Staff);
+           int applicantsId = int.Parse(Request.Cookies["ApplicantId"]);
+
+
+            var bookingDBContext = _context.Bookings.Where(b => b.ApplicantsId == applicantsId).Include(b => b.Address).Include(b => b.Applicants).Include(b => b.Staff).Include(b=>b.Tracking);
+           
             return View(await bookingDBContext.ToListAsync());
             
         }
+        // GET: Bookings/Edit/5
+        public async Task<IActionResult> EditBooking(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            //var bookings = await _context.Bookings.FindAsync(id);
+            var bookings = await _context.Bookings.FindAsync(id);
+            if (bookings == null)
+            {
+                return NotFound();
+            }
+
+            
+
+            Response.Cookies.Append("EditApplicantId", bookings.ApplicantsId.ToString());
+            Response.Cookies.Append("EditAddressId", bookings.ApplicantsId.ToString());
+            Response.Cookies.Append("AddressId", bookings.ApplicantsId.ToString());
+
+
+
+
+
+            return View(bookings);
+        }
         
+
     }
 
-   
+
 }

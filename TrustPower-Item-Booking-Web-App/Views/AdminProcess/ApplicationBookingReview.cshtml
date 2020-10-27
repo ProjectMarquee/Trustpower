@@ -1,0 +1,192 @@
+﻿@model IEnumerable<TrustPower_Item_Booking_Web_App.Models.Bookings>
+@{
+    Layout = "../Shared/_AdminLayout.cshtml";
+}
+<!--
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fees)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateReceived)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfApproval)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApprovedByStaffId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisapprovedDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PickUpDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReturnDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EvenStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SetUpRequested)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Applicants)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Staff)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fees)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateReceived)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfApproval)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApprovedByStaffId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DisapprovedDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PickUpDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReturnDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EvenStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SetUpRequested)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address.PostCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Applicants.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Staff.FirstName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BookingId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BookingId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BookingId">Delete</a>
+                </td>
+            </tr>
+}
+    </tbody>
+</table>
+-->
+
+<img src="~/images/logo.png" class="figure-img img-fluid float-right">
+<div class="container text-center h-100">
+
+    <div class="row justify-content-center ">
+
+        <div class="btn-group" role="group" aria-label="btn">
+            <a type="button" asp-controller="AdminProcess" asp-action="ApplicationBookingReview" class="btn btn-secondary btn-nav active">Booking Applications</a>
+            <a type="button" asp-controller="AdminProcess" asp-action="BookingReview" class="btn btn-secondary btn-nav">Confirmed Bookings</a>
+            <a type="button" class="btn btn-secondary btn-nav">Close Bookings</a>
+        </div>
+
+        <div class="col-sm-11">
+            <br>
+            <h1 class="align-middle">Confirmed Bookings</h1>
+            <br><br><br>
+            <div class="card">
+                <div class="card-header">
+
+                    <div class="col-md-6 mb-3">
+                        <!-- <label for="country">Sort by</label> -->
+                        <div class="input-group-prepend">
+                            <span class="input">Sort by: </span>
+                        </div>
+                        <select class="custom-select d-block w-100" id="" required>
+                            <option value="">Application Recieved Date</option>
+                            <option>Closeest Pick Up Date</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col">Pick up Date</th>
+                            <th scope="col">Return Date</th>
+                            <th scope="col">Applicant Name</th>
+                            <th scope="col">Item Prefence</th>
+                            <th scope="col">Item ID</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td class="align-middle">6 Mar</td>
+                            <td class="align-middle">8 Mar</td>
+                            <td class="align-middle">Jo</td>
+                            <td class="align-middle">Marquee</td>
+                            <td class="align-middle">M1</td>
+                            <td class="align-middle"><a type="button" asp-controller="AdminProcess" asp-action="ApplicantDetails" class="btn btnr btn-primary">Process Applcation</a></td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="align-middle">6 Mar</td>
+                            <td class="align-middle">8 Mar</td>
+                            <td class="align-middle">Jo</td>
+                            <td class="align-middle">Marquee</td>
+                            <td class="align-middle">M1</td>
+                            <td class="align-middle"><a type="button" asp-controller="AdminProcess" asp-action="ApplicantDetails" class="btn btnr btn-primary">Process Applcation</a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="align-middle">6 Mar</td>
+                            <td class="align-middle">8 Mar</td>
+                            <td class="align-middle">Jo</td>
+                            <td class="align-middle">Marquee</td>
+                            <td class="align-middle">M1</td>
+                            <td class="align-middle"><a type="button" asp-controller="AdminProcess" asp-action="ApplicantDetails" class="btn btnr btn-primary">Process Applcation</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>

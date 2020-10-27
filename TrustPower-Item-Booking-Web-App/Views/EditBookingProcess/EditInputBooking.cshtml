@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Create";
-    
+    int x = @ViewBag.EditBookingId;
 }
 <!--
 <h1>Create</h1>
@@ -57,8 +57,8 @@
             <h5>Please enter details about the event.</h5>
             <br /><br />
             <div class="row">
-                <form asp-controller="Bookings" asp-action="Create" method="post">
-                    
+                <form asp-controller="Bookings" asp-action="Edit" method="post">
+                    <input type="hidden" asp-for="AddressId" value="@x" />
                     <div class="form-row">
                         <div class="form-group col-12">
                             <input type="text" placeholder="Event Name" asp-for="EventName" class="form-control" required autocomplete="off" maxlength="50" />
@@ -90,7 +90,6 @@
                             </a>
 
                         </div>
-
 
                         <div class="form-group col-12 text-center pt-4">
                             <input type="submit" value="Next" class="button input-button">

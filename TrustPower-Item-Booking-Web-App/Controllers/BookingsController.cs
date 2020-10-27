@@ -60,6 +60,7 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
 
         // POST: Bookings/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -108,7 +109,8 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("BookingId,Fees,DateReceived,DateOfApproval,EventDescription,ApprovedByStaffId,DisapprovedDescription,PickUpDate,ReturnDate,EvenStatus,EventName,SetUpRequested,StaffId,ApplicantsId,AddressId")] Bookings bookings)
         {
-            if (id != bookings.BookingId)
+            id = int.Parse(Request.Cookies["EditBookingId"]);
+            if (id != id)
             {
                 return NotFound();
             }
@@ -117,8 +119,27 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
             {
                 try
                 {
-                    _context.Update(bookings);
-                    await _context.SaveChangesAsync();
+
+
+                    var updatedBooking = _context.Bookings.Where(a => a.BookingId == id).FirstOrDefault();
+
+
+                    updatedBooking.EventName = bookings.EventName;
+                    updatedBooking.PickUpDate = Convert.ToDateTime(Request.Cookies["EditPickUpDate"]);
+                    updatedBooking.ReturnDate = Convert.ToDateTime(Request.Cookies["EditReturnDate"]);
+                    updatedBooking.EvenStatus = "Incomplete";
+                    updatedBooking.RequestedItem = Request.Cookies["EditItemName"];
+                    updatedBooking.DateReceived = DateTime.Now;
+
+
+
+                   
+
+                    _context.Update(updatedBooking);
+
+
+                    
+                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -131,7 +152,7 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return View("../EditBookingProcess/EditConfirmation");
             }
            
             return View(bookings);
@@ -166,8 +187,16 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
             var bookings = await _context.Bookings.FindAsync(id);
             _context.Bookings.Remove(bookings);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+
+
+
+
+            return RedirectToAction("BookingsList", "BookingProcess");
+
+            
         }
+
 
         private bool BookingsExists(int id)
         {

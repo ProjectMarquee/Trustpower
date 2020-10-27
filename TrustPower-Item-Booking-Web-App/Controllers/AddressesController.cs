@@ -15,6 +15,7 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
     {
 
        
+       
 
         
 
@@ -83,6 +84,12 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
                 ViewBag.AddressId = addresses.AddressId;
                 
 
+                if(Request.Cookies["ApplicantId"] != null)
+                {
+                    return View("../BookingProcess/InputBooking");
+                }
+
+
                 return View("../BookingProcess/InputApplicant");
                
 
@@ -115,6 +122,8 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("AddressId,StreetName,Suburb,PostCode,City")] Addresses addresses)
         {
+            var applicant = await _context.Applicants.FindAsync(int.Parse(Request.Cookies["ApplicantId"]));
+            id = int.Parse(Request.Cookies["AddressId"]);
             if (id != addresses.AddressId)
             {
                 return NotFound();
@@ -138,9 +147,25 @@ namespace TrustPower_Item_Booking_Web_App.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+
+                ViewBag.AddressId = int.Parse(Request.Cookies["AddressId"]);
+                ViewBag.EditApplicantId = int.Parse(Request.Cookies["EditApplicantId"]);
+
+                return View("../EditBookingProcess/EditInputApplicant", applicant);
+
             }
-            return View(addresses);
+
+
+            
+
+
+
+
+
+
+
+
+            return View("../EditBookingProcess/EditInputApplicant", applicant );
         }
 
         // GET: Addresses/Delete/5

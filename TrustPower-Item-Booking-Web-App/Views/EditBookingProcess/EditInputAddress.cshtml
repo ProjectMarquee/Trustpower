@@ -15,14 +15,15 @@
 
             <br /><br />
             <div class="row">
-                <form method="post" id="addressForm" asp-controller="Addresses" asp-action="Create">
+                <form method="post"  asp-controller="Addresses" asp-action="Edit"   id="addressForm" >
                     <div class="form-row">
+                        <input type="hidden" asp-for="AddressId" />
                         <div class="form-group col-12">
-                            <input type="text" placeholder="Street Name" asp-for="StreetName" id="StreetName" class="form-control" required autocomplete="off" maxlength="50"/>
+                            <input type="text" placeholder="Street Name" asp-for="StreetName" id="StreetName" class="form-control" required autocomplete="off" maxlength="50" />
                             <span asp-validation-for="StreetName" class="text-danger"></span>
                         </div>
                         <div class="form-group col-12">
-                            <input type="text" placeholder="Suburb" asp-for="Suburb" id="Suburb" class="form-control" required autocomplete="off" maxlength="50"/>
+                            <input type="text" placeholder="Suburb" asp-for="Suburb" id="Suburb" class="form-control" required autocomplete="off" maxlength="50" />
                             <span asp-validation-for="Suburb" class="text-danger"></span>
                         </div>
                         <div class="form-group col-9">
@@ -30,7 +31,7 @@
                             <span asp-validation-for="City" class="text-danger"></span>
                         </div>
                         <div class="form-group col-3">
-                            <input type="number" placeholder="Postcode" asp-for="PostCode" id="PostCode" class="form-control" required autocomplete="off" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4"/>
+                            <input type="number" placeholder="Postcode" asp-for="PostCode" id="PostCode" class="form-control" required autocomplete="off" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" />
                             <span asp-validation-for="PostCode" class="text-danger"></span>
                         </div>
                         <div class="form-group col-12 text-center pt-4">
