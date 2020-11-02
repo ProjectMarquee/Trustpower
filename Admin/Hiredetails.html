@@ -8,7 +8,7 @@
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
-
+  <script src="main.js"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -19,9 +19,9 @@
     <div class="row justify-content-center">
 
       <div class="btn-group" role="group" aria-label="btn">
-        <a type="button" href="Appdetails.html" class="btn btn-secondary btn-nav">Applicant Details</a>
-        <a type="button" href="Evntdetails.html" class="btn btn-secondary btn-nav">Event Details</a>
-        <a type="button" href="Hiredetails.html" class="btn btn-secondary btn-nav active">Hire Details</a>
+        <a type="button" href="ApplicantDetails.html" class="btn btn-secondary btn-nav">Applicant Details</a>
+        <a type="button" href="EventDetails.html" class="btn btn-secondary btn-nav">Event Details</a>
+        <a type="button" href="HireDetails.html" class="btn btn-secondary btn-nav active">Hire Details</a>
         <a type="button" href="ApproveOrDeny.html" class="btn btn-secondary btn-nav">Approve/Deny</a>
       </div>
 
@@ -33,14 +33,14 @@
 
 
         <div class="row">
-          <div class="col-sm-offset-1 col-sm-5">
+          <div class="col-sm-offset-1 col-sm-6">
             <h2>Date of Event(s)</h2>
             <ul class="list-group list-group-flush list-new-item"> 
               <li class="list-group-item">Marquee 5m x 10mm<br> M1</li>
               <li class="list-group-item">Marquee 6M x 8m<br> M2</li>
             </ul>
           </div>
-          <div class="col-sm-5">
+          <div class="col-sm-6">
             <div>
               <h2>Party Hire setup/pack down requested?</h2>
               <h3>Yes</h3>
@@ -50,31 +50,28 @@
         <br>
         <br>
         <div class="row">
-          <div class="col-sm-offset-1 col-sm-5">
+          <div class="col-sm-offset-1 col-sm-6">
             <div class="float-right">
               <h2>Date of Event(s)</h2>
               <h3>6th Mar</h3>
             </div>
           </div>
-          <div class="col-sm-5">
+          <div class="col-sm-6">
             <div class="float-left">
               <h2>Date of Event(s)</h2>
               <h3>8th Mar</h3>
             </div>
           </div>
-
-          
+     
         </div>
-
-        <br>
-        <br>
-        <br>
-        <br>
       </div>
     </div>
-     <!-- <button type="button" class="btn btn-primary">Cancel</button> -->
   </div>
-
+  <div class="container footer-btn text-center h-100">
+    <div class="row justify-content-center">
+      <button type="button" class="btn btn-primary btn-exit" data-toggle="popover" data-toggle="modal" data-target="#ModalCenter">Exit to Home Page or Application Booking</button>
+    </div>  
+  </div>
 </body>
 
 </html>

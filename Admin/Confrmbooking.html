@@ -8,7 +8,7 @@
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
-
+  <script src="main.js"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -19,8 +19,8 @@
     <div class="row justify-content-center ">
 
       <div class="btn-group" role="group" aria-label="btn">
-        <a type="button" href="Appbooking.html" class="btn btn-secondary btn-nav">Booking Applications</a>
-        <a type="button" href="Confrmbooking.html" class="btn btn-secondary active btn-nav">Confirmed Bookings</a>
+        <a type="button" href="ApplicationBookingReview.html" class="btn btn-secondary btn-nav">Booking Applications</a>
+        <a type="button" href="ConfrmBooking.html" class="btn btn-secondary active btn-nav">Confirmed Bookings</a>
         <atype="button" class="btn btn-secondary btn-nav">Close Bookings</a>
       </div>
 
@@ -37,14 +37,14 @@
                 <span class="input">Sort by: </span>
               </div>
               <select class="custom-select d-block w-100" id="" required>
-                  <option value="">Application Recieved Date</option>
-                  <option>Closeest Pick Up Date</option>
+                <option value="">Application Recieved Date</option>
+                <option>Closeest Pick Up Date</option>
               </select>
-          </div>
+            </div>
 
           </div>
 
-          <table class="table table-borderless">
+          <table class="table table-borderless table-responsive-sm">
             <thead>
               <tr>
                 <th scope="col">Pick up Date</th>
@@ -63,7 +63,7 @@
                 <td class="align-middle">Jo</td>
                 <td class="align-middle">Marquee</td>
                 <td class="align-middle">M1</td>
-                <td class="align-middle"><button type="button" class="btn btnr btn-primary">Review Booking</button></td>
+                <td class="align-middle"><a type="button" class="btn btn-primary btn-booking" href="ApplicantDetails.html">Process Applcation</a></td>
               </tr>
 
 
@@ -73,7 +73,7 @@
                 <td class="align-middle">Jo</td>
                 <td class="align-middle">Marquee</td>
                 <td class="align-middle">M1</td>
-                <td class="align-middle"><button type="button" class="btn btnr btn-primary">Review Booking</button></td>
+                <td class="align-middle"><a type="button" class="btn btn-primary btn-booking" href="ApplicantDetails.html">Process Applcation</a></td>
               </tr>
 
               <tr>
@@ -82,22 +82,14 @@
                 <td class="align-middle">Jo</td>
                 <td class="align-middle">Marquee</td>
                 <td class="align-middle">M1</td>
-                <td class="align-middle"><button type="button" class="btn btnr btn-primary">Review Booking</button></td>
+                <td class="align-middle"><a type="button" class="btn btn-primary btn-booking" href="ApplicantDetails.html">Process Applcation</a></td>
               </tr>
             </tbody>
-          </table>  
-          <!-- <div class="card-footer">
-            Card Footer
-          </div> -->
+          </table>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
       </div>
     </div>
   </div>
-  
 </body>
 
 </html>
