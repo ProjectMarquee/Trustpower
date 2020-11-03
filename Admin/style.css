@@ -56,7 +56,6 @@ textarea {
 
 .card-header {
   background-color: #ffffff00;
-
 }
 
 .card, .card-header  {
@@ -72,7 +71,6 @@ tbody {
 
 th {
   font-weight: normal;
-  
 }
 
 td {
@@ -155,7 +153,7 @@ a,a:hover,a:active,a:visited {
   background-color: #7f29a2!important;
 }
 
-/* Deny Btn (main) */
+/* Deny btn (main) */
 .btn-trust, .btn-trust:link, .btn-trust:visited, .btn-trust:active{
   background-color: #721ba4!important;
   color: #fff!important;
@@ -166,7 +164,7 @@ a,a:hover,a:active,a:visited {
   background-color: #7f29a2!important;
 }
 
-/* Approve Btn */
+/* Approve btn */
 .btn-trustdark, .btn-trustdark:link, .btn-trustdark:visited, .btn-trustdark:active{
   background-color: #292c30!important;
   color: #fff!important;
